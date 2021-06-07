@@ -115,6 +115,13 @@ module NavigationContainer = {
   type state = Js.Json.t;
   type navigationState = state => unit;
 
+  type config = {screens: Js.Dict.t(string)};
+
+  type linking = {
+    prefixes: array(string),
+    config,
+  };
+
   [@bs.module "@react-navigation/native"] [@react.component]
   external make:
     (
@@ -123,7 +130,8 @@ module NavigationContainer = {
       ~onStateChange: navigationState=?,
       ~onReady: unit => unit=?,
       ~theme: theme=?,
-      ~children: React.element
+      ~children: React.element,
+      ~linking: linking=?
     ) =>
     React.element =
     "NavigationContainer";
