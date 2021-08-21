@@ -74,6 +74,7 @@ module Make = (M: {type params;}) => {
                          | [@bs.as "locked-open"] `lockedOpen
                        ]
                          =?,
+      ~gestureEnabled: bool=?,
       unit
     ) =>
     options;
